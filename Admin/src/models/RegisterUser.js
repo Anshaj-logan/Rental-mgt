@@ -1,19 +1,17 @@
 const mongoose=require('mongoose')
-mongoose.connect('mongodb+srv://cvaparna357:cvaparna357@cluster0.vkfvyex.mongodb.net/costume_db?retryWrites=true&w=majority')
+
 
 const schema=mongoose.Schema
 
 const registerSchema = new schema({
-    F_name:{type:String},
-    L_name:{type:String},
-    Email:{type:String},
-    Phone:{type:String},
-    House_name:{type:String},
-    Place:{type:String},
-    PIN:{type:String},
-    District:{type:String},
-    Password:{type:String},
-    Confirm_Password:{type:String},
+    name:{type:String},
+    login_id:{type:mongoose.Types.ObjectId,ref:"login_tb"},
+    email:{type:String},
+    phone_no:{type:String},
+    house_name:{type:String},
+    place:{type:String},
+    pin:{type:String},
+    district:{type:String},
     Status:{type:String},
 
 })

@@ -1,15 +1,12 @@
-const mongoose=require('mongoose')
-mongoose.connect('mongodb+srv://cvaparna357:cvaparna357@cluster0.vkfvyex.mongodb.net/costume_db?retryWrites=true&w=majority')
+const mongoose = require('mongoose')
+const schema = mongoose.Schema
 
-const schema=mongoose.Schema
-
-const loginuserSchema = new schema({
-    username:{type:String},
-    
-    Password:{type:String},
-    
+const loginSchema  = new schema({
+    username: {type: String, required:true},
+    password: {type: String, required:true},
+    status: {type:String, required: true},
+    role: {type:String, required: true},    
 })
 
-const loginusermodel=mongoose.model('loginuser_tb',loginuserSchema)
-
-module.exports=loginusermodel
+var loginData = mongoose.model('login_tb', loginSchema)
+module.exports = loginData 

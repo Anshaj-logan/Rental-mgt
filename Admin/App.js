@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 var bodyParser = require('body-parser')
 const ProductRouter = require('./src/routes/ProductRouter')
 const FeedbackRouter = require('./src/routes/FeedbackRouter')
@@ -13,12 +14,28 @@ const RegRouter = require('./src/routes/RegRouter')
 const UsermsgRouter = require('./src/routes/UsermsgRouter')
 const BillingRouter = require('./src/routes/BillingRouter')
 const ShippingRouter = require('./src/routes/ShippingRouter')
+const registerRouter = require('./src/routes/api/registerRouter')
+const signinRouter = require('./src/routes/api/signinRouter')
 
 const app = express()
 app.use(express.static('./public'))
 app.set('view engine','ejs')
 app.set('views','./src/views')
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser())
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader( 
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+  );
+  next();
+});
+
 
 app.use('/user',ManageuserRouter)
 app.use('/delivery',ManagedeliveryRouter)
@@ -34,7 +51,10 @@ app.use('/shipping',ShippingRouter)
 
 
 
-app.use('/reg',RegRouter)
+
+
+app.use('/api/register/',registerRouter)
+app.use('/api/login/',signinRouter)
 
 
 
@@ -56,7 +76,16 @@ app.get('/oldproduct', async function (req, res) {
 })
 
 
-app.listen(2000,()=>
-{
-  console.log("server started at http://localhost:2000")
+const MONGODB_URL=
+"mongodb+srv://anshajmaitexa:1234@cluster0.lmqsqvs.mongodb.net/rental_db?retryWrites=true&w=majority"
+
+
+const port=2000;
+
+mongoose.connect(MONGODB_URL).then(()=>{
+    app.listen(port,()=>{
+        console.log(`server running on port http://localhost:2000/admin`);
+    })
+}).catch((error)=>{
+    console.log(` ${error} did not connect`); 
 })
