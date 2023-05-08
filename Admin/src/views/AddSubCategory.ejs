@@ -126,35 +126,61 @@
 
 
 
-      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class=""></i><span class="app-menu__label">Users</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class=""></i><span
+            class="app-menu__label">Users</span><i class="treeview-indicator fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
           <li><a class="treeview-item" href="/user/1manageuser"><i class="icon fa fa-circle-o"></i> Manage user</a></li>
-          <li><a class="treeview-item" href="/user/1restoreuser" ><i class="icon fa fa-circle-o"></i> Restore user</a></li>
-          <li><a class="treeview-item" href="/user/1usermsg" ><i class="icon fa fa-circle-o"></i> User messages</a></li>
+          <li><a class="treeview-item" href="/user/1restoreuser"><i class="icon fa fa-circle-o"></i> Restore user</a>
+          </li>
+          <li><a class="treeview-item" href="/user/1usermsg"><i class="icon fa fa-circle-o"></i> User messages</a></li>
 
         </ul>
-      </li>   
-      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class=""></i><span class="app-menu__label">Deliveryboy</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      </li>
+      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class=""></i><span
+            class="app-menu__label">Deliveryboy</span><i class="treeview-indicator fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
-          <li><a class="treeview-item" href="/delivery/1managedelivery"><i class="icon fa fa-circle-o"></i> Manage deliveryboy</li>
-          <li><a class="treeview-item" href="/delivery/1restoredelivery" ><i class="icon fa fa-circle-o"></i> Restore deliveryboy</a></li>
-          
+          <li><a class="treeview-item" href="/delivery/1managedelivery"><i class="icon fa fa-circle-o"></i> Manage
+              deliveryboy</li>
+          <li><a class="treeview-item" href="/delivery/1restoredelivery"><i class="icon fa fa-circle-o"></i> Restore
+              deliveryboy</a></li>
+
         </ul>
-      </li> 
+      </li>
+
+      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class=""></i><span
+            class="app-menu__label">Category</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="/delivery/1managedelivery"><i class="icon fa fa-circle-o"></i> Add category
+          </li>
+          <li><a class="treeview-item" href="/delivery/1managedelivery"><i class="icon fa fa-circle-o"></i> View
+              category</li>
+          <li><a class="treeview-item" href="/delivery/1restoredelivery"><i class="icon fa fa-circle-o"></i> Add sub
+              category</a></li>
+          <li><a class="treeview-item" href="/delivery/1restoredelivery"><i class="icon fa fa-circle-o"></i> View sub
+              category</a></li>
+
+        </ul>
+      </li>
       <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class=""></i><span
             class="app-menu__label">Products</span><i class="treeview-indicator fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
-          <li><a class="treeview-item" href="/product/1Addproduct"><i class="icon fa fa-circle-o"></i> Add Products</a></li>
-          <li><a class="treeview-item" href="/product/1Products"><i class="icon fa fa-circle-o"></i> View Products</a></li>
-          <li><a class="treeview-item" href="/product/1AddGallery" ><i class="icon fa fa-circle-o"></i> Add Gallery</a></li>
-          <li><a class="treeview-item" href="/product/1ViewGallery" ><i class="icon fa fa-circle-o"></i> View Gallery</a></li>
+          <li><a class="treeview-item" href="/product/1Addproduct"><i class="icon fa fa-circle-o"></i> Add Products</a>
+          </li>
+          <li><a class="treeview-item" href="/product/1Products"><i class="icon fa fa-circle-o"></i> View Products</a>
+          </li>
+          <li><a class="treeview-item" href="/product/1AddGallery"><i class="icon fa fa-circle-o"></i> Add Gallery</a>
+          </li>
+          <li><a class="treeview-item" href="/product/1ViewGallery"><i class="icon fa fa-circle-o"></i> View Gallery</a>
+          </li>
 
         </ul>
       </li>
       <li><a class="app-menu__item" href="/orders/1Orders"><i class=""></i><span
             class="app-menu__label">Orders</span></a></li>
-      <li><a class="app-menu__item" href="/payment/1payment"><i class=""></i><span class="app-menu__label">Viewpayments</span></a></li>
-      <li><a class="app-menu__item" href="/complaint/1Complaint"><i class=""></i><span class="app-menu__label">View Complaints</span></a></li>
+      <li><a class="app-menu__item" href="/payment/1payment"><i class=""></i><span
+            class="app-menu__label">Viewpayments</span></a></li>
+      <li><a class="app-menu__item" href="/complaint/1Complaint"><i class=""></i><span class="app-menu__label">View
+            Complaints</span></a></li>
 
       <li><a class="app-menu__item" href="/delivery/1deliverystatus"><i class=""></i><span class="app-menu__label">View
             delivey status</span></a></li>
@@ -181,106 +207,49 @@
 
     <div class="col-md-12">
       <div class="tile">
-        <h3 class="tile-title">Add products</h3>
+        <h3 class="tile-title">Add sub category</h3>
         <div class="tile-body">
-          <form class="form-horizontal" action="/product/save-product" method="post" enctype="multipart/form-data">
-            <div class="form-group row">
-              <label class="control-label col-md-3">Product Name</label>
-              <div class="col-md-6">
-                <input class="form-control" type="text" name="product_name" placeholder="Product Name">
-              </div>
-            </div>
+          <form class="form-horizontal" action="/product/save-sub-category" method="get" enctype="multipart/form-data">
             <div class="form-group row">
               <label class="control-label col-md-3">Category Name</label>
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <select name="category_id" class="form-control">
-                  <option>--select category--</option>
-                  <%for(i=0;i<categorys.length;i++){%>
-                  <option value="<%= categorys[i]._id%>"><%=categorys[i].category_name%></option>
-                  <%}%>
-                </select>
-               
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="control-label col-md-3">Sub Category Name</label>
-              <div class="col-md-6">
-                <select class="form-control name="sub_category_id" id="">
-                  <option>--select sub category--</option>
-                  <%for(i=0;i<sub_category.length;i++){%>
-                    <option value="<%= sub_category[i]._id%>"><%=sub_category[i].sub_category_name%></option>
-                    <%}%>
+                <option>--select category--</option>
+                <%for(i=0;i<categorys.length;i++){%>
+                <option value="<%=categorys[i]._id%>"><%=categorys[i].category_name%></option>
+                <%}%>
                 </select>
               </div>
             </div>
             <div class="form-group row">
-              <label class="control-label col-md-3">Sizes available</label>
+              <label class="control-label col-md-3">Sub category name</label>
               <div class="col-md-8">
-                <input class="form-control col-md-8" type="text" name="size_available" placeholder="Total available">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="control-label col-md-3">Total available</label>
-              <div class="col-md-8">
-                <input class="form-control col-md-8" type="text" name="Tot_available" placeholder="Total available">
-              </div>
-            </div>
-         
-            <div class="form-group row">
-              <label class="control-label col-md-3">Caution</label>
-              <div class="col-md-8">
-                <input class="form-control col-md-8" type="text" name="caution" placeholder="Caution">
+                <input class="form-control" type="text" name="sub_category_name" placeholder="Sub category Name">
               </div>
             </div>
 
-        </div>
-        <div class="form-group row">
-          <label class="control-label col-md-3">Rental price</label>
-          <div class="col-md-8">
-            <input class="form-control col-md-8" type="text" name="rental_price" placeholder="Rental price">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="control-label col-md-3">Fine</label>
-          <div class="col-md-8">
-            <input class="form-control col-md-8" type="text" name="fine" placeholder="Fine">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="control-label col-md-3">Replacement Fee</label>
-          <div class="col-md-8">
-            <input class="form-control col-md-8" type="text" name="replacement_fee" placeholder="Replacement Fee">
-          </div>
+            <div class="tile-footer">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-3">
+                  <button class="btn btn-primary" type="submit"><i
+                      class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary"
+                    href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
 
-        <div class="form-group row">
-          <label class="control-label col-md-3">Product images</label>
-          <div class="col-md-8">
-            <input class="form-control-file" type="file" name="img_1">
-            
-          </div>
-
-        </div>
       </div>
 
     </div>
 
-    </div>
-
-    </div>
-    <div class="tile-footer">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-3">
-          <button class="btn btn-primary" type="submit"><i
-              class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary"
-            href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
-        </div>
-      </div>
-    </div>
-
-    </form>
     </div>
    
+
+   
+    </div>
+
     </div>
     </div>
 
@@ -296,66 +265,7 @@
   <script src="js/plugins/pace.min.js"></script>
   <!-- Page specific javascripts-->
   <script type="text/javascript" src="js/plugins/chart.js"></script>
-  <script type="text/javascript">
-    var data = {
-      labels: ["January", "February", "March", "April", "May"],
-      datasets: [
-        {
-          label: "My First dataset",
-          fillColor: "rgba(220,220,220,0.2)",
-          strokeColor: "rgba(220,220,220,1)",
-          pointColor: "rgba(220,220,220,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [65, 59, 80, 81, 56]
-        },
-        {
-          label: "My Second dataset",
-          fillColor: "rgba(151,187,205,0.2)",
-          strokeColor: "rgba(151,187,205,1)",
-          pointColor: "rgba(151,187,205,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(151,187,205,1)",
-          data: [28, 48, 40, 19, 86]
-        }
-      ]
-    };
-    var pdata = [
-      {
-        value: 300,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Complete"
-      },
-      {
-        value: 50,
-        color: "#F7464A",
-        highlight: "#FF5A5E",
-        label: "In-Progress"
-      }
-    ]
 
-    var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-    var lineChart = new Chart(ctxl).Line(data);
-
-    var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-    var pieChart = new Chart(ctxp).Pie(pdata);
-  </script>
-  <!-- Google analytics script-->
-  <script type="text/javascript">
-    if (document.location.hostname == 'pratikborsadiya.in') {
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-72504830-1', 'auto');
-      ga('send', 'pageview');
-    }
-  </script>
 </body>
 
 </html>

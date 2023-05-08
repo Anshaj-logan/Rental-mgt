@@ -16,6 +16,8 @@ const BillingRouter = require('./src/routes/BillingRouter')
 const ShippingRouter = require('./src/routes/ShippingRouter')
 const registerRouter = require('./src/routes/api/registerRouter')
 const signinRouter = require('./src/routes/api/signinRouter')
+const productRouter = require('./src/routes/api/productRouter')
+
 
 const app = express()
 app.use(express.static('./public'))
@@ -55,6 +57,7 @@ app.use('/shipping',ShippingRouter)
 
 app.use('/api/register/',registerRouter)
 app.use('/api/login/',signinRouter)
+app.use('/api/product/',productRouter)
 
 
 
@@ -77,7 +80,7 @@ app.get('/oldproduct', async function (req, res) {
 
 
 const MONGODB_URL=
-"mongodb+srv://anshajmaitexa:1234@cluster0.lmqsqvs.mongodb.net/rental_db?retryWrites=true&w=majority"
+"mongodb+srv://maneeshmaitexa:maneeshmaitexa@cluster0.fv75o1k.mongodb.net/RentalDB?retryWrites=true&w=majority"
 
 
 const port=2000;
