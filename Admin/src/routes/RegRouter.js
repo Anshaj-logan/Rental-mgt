@@ -1,8 +1,10 @@
 const express = require('express')
 const registermodel = require('../models/RegisterUser')
 const registerdeliverymodel = require('../models/RegisterDelivery')
+
 const RegRouter = express.Router()
 RegRouter.use(express.static('./public'))
+
 
 
 
