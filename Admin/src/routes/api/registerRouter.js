@@ -44,6 +44,7 @@ registerRouter.post('/', async (req,res) => {
             place: req.body.place,
             pin:req.body.pin,
             district: req.body.district,
+            Status:"0"
             
             
             
