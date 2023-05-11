@@ -222,8 +222,7 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>F_name</th>
-              <th>L_name</th>
+              <th>Name</th>
               <th>Email</th>
 
               <th>Place</th>
@@ -236,16 +235,14 @@
             <% for(i=0;i<data.length;i++){%>
               <tr>
                 <td><%=i+1%></td>
-                <td><%=data[i].F_name%></td>
-                <td><%=data[i].L_name%></td>
-                <td><%=data[i].Email%></td>
-
-                <td><%=data[i].Place%></td>
-                <td><%=data[i].Phone%></td>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].email%></td>
+                <td><%=data[i].place%></td>
+                <td><%=data[i].phone_no%></td>
                 <td> 
                   
-                    <a class="btn btn-success" href="/reg/restore/<%=data[i]._id%>" type="button">Restore</a>
-                  <a href="/reg/reject/<%=data[i]._id%>" class="btn btn-danger" type="button">delete</button>
+                    <a class="btn btn-success" href="/user/restore/<%=data[i].login_id%>" type="button">Restore</a>
+                  <a href="/user/delete/<%=data[i].login_id%>" class="btn btn-danger" type="button">delete</button>
 
                 </td>
               

@@ -4,13 +4,15 @@ const mongoose=require('mongoose')
 const schema=mongoose.Schema
 
 const restoreSchema = new schema({
-    // Login_id:{type:mongoose.Types.ObjectId,ref:"loginadmin_tb"},
-    user_id:{type:mongoose.Types.ObjectId,ref:"product_tb"},
-    resF_name:{type:String},
-    resL_name:{type:String},
-    resEmail:{type:String},
-    resPlace:{type:String},
-    resPhone:{type:String},
+    name:{type:String},
+    login_id:{type:mongoose.Types.ObjectId,ref:"login_tb"},
+    email:{type:String},
+    phone_no:{type:String},
+    house_name:{type:String},
+    place:{type:String},
+    pin:{type:String},
+    district:{type:String},
+    Status:{type:String},
     
     
 })

@@ -9,7 +9,7 @@ ProductRouter.use(express.static('./public'))
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images/uploads/')
+    cb(null, '../client/public/uploads/')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname)
@@ -226,9 +226,10 @@ ProductRouter.get('/delete/:name', async function (req, res) {
 ProductRouter.post('/save-product', upload.single('img_1'), function (req, res) {
   console.log(req.body);
   const data = {
+    category_id: req.body.category_id,
+    sub_category_id: req.body.sub_category_id,
     Product_name: req.body.product_name,
     Product_size: req.body.size_available,
-
     Total_available: req.body.Tot_available,
     Currently_available: req.body.Cur_available,
     Caution: req.body.caution,

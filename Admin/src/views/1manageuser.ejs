@@ -222,10 +222,8 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>F_name</th>
-              <th>L_name</th>
+              <th>Name</th>
               <th>Email</th>
-
               <th>Place</th>
               <th>Phone</th>
               <th>Action</th>
@@ -236,19 +234,18 @@
             <% for(i=0;i<data.length;i++){%>
               <tr>
                 <td><%=i+1%></td>
-                <td><%=data[i].F_name%></td>
-                <td><%=data[i].L_name%></td>
-                <td><%=data[i].Email%></td>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].email%></td>
 
-                <td><%=data[i].Place%></td>
-                <td><%=data[i].Phone%></td>
+                <td><%=data[i].place%></td>
+                <td><%=data[i].phone_no%></td>
                 <td> 
-                  <%if(data[i].Status=="0"){%>
-                  <a href="/reg/approve/<%=data[i]._id%>" class="btn btn-success" type="button">Approve</a>
-                  <a href="/reg/reject/<%=data[i]._id%>" class="btn btn-danger" type="button">Reject</button>
+                  <%if(data[i].status=="0"){%>
+                  <a href="/user/approve/<%=data[i].login_id%>" class="btn btn-success" type="button">Approve</a>
+                  <a href="/user/reject/<%=data[i].login_id%>" class="btn btn-danger" type="button">Reject</button>
                   <%}else {%>
                     <button class="btn btn-success" disabled type="button">Approved</button>
-                  <a href="/reg/reject/<%=data[i]._id%>" class="btn btn-danger" type="button">Reject</button>
+                  <a href="/user/reject/<%=data[i].login_id%>" class="btn btn-danger" type="button">Reject</button>
 
                 </td>
                 <%}%>

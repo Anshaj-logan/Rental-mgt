@@ -33,16 +33,97 @@ ManageuserRouter.post("/admin-login", async (req, res) => {
 })
 
 
-ManageuserRouter.get('/1manageuser', function (req, res) {
-  registermodel.find().then((data)=>{
-    res.render('1manageuser',{data})    
+ManageuserRouter.get('/1manageuser', async function (req, res) {
+  try {
+    const data =await registermodel.aggregate([
+      {
+        '$lookup': {
+          'from': 'login_tbs', 
+          'localField': 'login_id', 
+          'foreignField': '_id', 
+          'as': 'login'
+        }
+      },
+      {
+        "$unwind":'$login'
+      },
+      {
+        '$match':{
+          'Status':'0'
+        }
+      },
+      {
+        "$group":{
+          "_id":"$_id",
+          "name":{"$first":"$name"},
+          "email":{"$first":"$email"},
+          "phone_no":{"$first":"$phone_no"},
+          "place":{"$first":"$place"},
+          "status":{"$first":"$login.status"},
+          "login_id":{"$first":"$login._id"},
+        }
+      }
+    ])
+// res.json({data})
+    res.render('1manageuser',{data}) 
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+ManageuserRouter.get('/reject/:id', function (req, res) {
+  const id = req.params.id
+  const data = {
+    Status: "2"
+  }
+  registermodel.updateOne({ login_id: id }, { $set: data }).then((data) => {
+    res.redirect('/user/1restoreuser')
+
   })
+})
+
+ManageuserRouter.get('/restore/:id', function (req, res) {
+  const id = req.params.id
+  const data = {
+    Status: "0"
+  }
+  registermodel.updateOne({ login_id: id }, { $set: data }).then((data) => {
+    res.redirect('/user/1manageuser')
+
   })
+})
+
+ManageuserRouter.get('/delete/:id', function (req, res) {
+  const id = req.params.id
+ console.log(id);
+  registermodel.deleteOne({ login_id: id }).then((data) => {
+    loginData.deleteOne({_id:id}).then((datas)=>{
+      console.log(datas);
+      res.redirect('/user/1manageuser')
+    })
+ 
+
+  })
+})
+ 
+
+ManageuserRouter.get('/approve/:id', function (req, res) {
+  const id = req.params.id
+  const data = {
+    status: "1"
+  }
+  console.log(data);
+  loginData.updateOne({ _id: id }, { $set: data }).then((data) => {
+    res.redirect('/user/1manageuser')
+
+  })
+})
 
 
   ManageuserRouter.get('/1restoreuser', async function (req, res) {
     try {
       registermodel.find({Status:"2"}).then((data)=>{
+        console.log(data);
         res.render('1restoreuser',{data})    
       })
       
@@ -51,21 +132,24 @@ ManageuserRouter.get('/1manageuser', function (req, res) {
     }
     })
 
+
+    
+
   ManageuserRouter.post('/rejectuser/:id', async function (req, res) {
     const id=req.params.id
     try {
-      const res_data=await registermodel.findOne({_id:id})
+      const res_data=await registermodel.findOne({login_id:id})
      
-      restoremodel(data_res).save().then((data)=>{
-        console.log(id);
+      restoremodel(res_data).save().then((data)=>{
+        restoremodel.find().then((data)=>{
+          res.render('1restoreuser',{data})    
+        })
             })
       
     } catch (error) {
       
     }
-    registermodel.find().then((data)=>{
-      res.render('1restoreuser',{data})    
-    })
+   
     })
 
 
